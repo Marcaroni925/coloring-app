@@ -1,0 +1,24 @@
+# superclaude-instructions/04-user-accounts.yaml
+name: User Accounts and Gallery
+description: Integrates Firebase for auth and image saving.
+commands:
+  - command: /build --api --persona-backend --c7 --evidence
+    prompt: |
+      Integrate Firebase for user accounts and gallery in the app. Features:
+      - Auth: Email/password sign-up/login, plus Google and Apple logins for future Android/iOS apps; note for age verification on payments.
+      - Gallery: Save generated images to Firestore (with user ID); retrieve list with delete options (single delete button per image, or checkboxes for bulk select + "Delete Selected" button).
+      - Frontend: Add login form/button in App.js (email/password + Google/Apple buttons), conditional gallery view post-login with image grid (thumbnails, delete icons/checkboxes).
+      - Backend: API routes for save/retrieve/delete (/save-image, /get-gallery, /delete-image, /delete-bulk), with auth checks; integrate with generation flow (save after refinement/image gen).
+      Include: Firebase SDK setup, error handling (e.g., unauthorized, delete confirmations). Update existing files for integration.
+      Remember to use your tools: --persona-backend for integration, --c7 for Firebase docs, --evidence for auth best practices.
+    output: |
+      - src/components/AuthComponent.js
+      - src/components/GalleryComponent.js
+      - server/routes/auth.js
+      - firebase-config.js
+    notes: |
+      - Run command with SuperClaude to generate files.
+      - Install Firebase: `npm install firebase`.
+      - Set up Firebase project online (console.firebase.google.com), add config to firebase-config.js.
+      - Test login/save/delete. Rerun with --uc if needed.
+      - Share with Grok.

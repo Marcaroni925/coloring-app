@@ -1,0 +1,26 @@
+# superclaude-instructions/01-vision.yaml
+name: App Vision and Architecture
+description: Defines the overall structure for the coloring book image generator app.
+commands:
+  - command: /design --app --ddd --persona-architect --evidence --seq --c7
+    prompt: |
+      Design a mobile-responsive web app (later convertible to Android/iOS) for generating printable black-and-white coloring book pages using OpenAI's DALL-E. Target audience: adults (parents, teachers, hobbyists) for stress relief/creative projects, usable by teens/kids but accounts/payments require adults. MVP features:
+      - Prompt input: Required text box for descriptions (e.g., "unicorn in a forest") and optional dropdown for pre-set themes (Animals, Mandalas, Fantasy, Nature).
+      - Customization: Required selections for detail complexity (Simple, Medium, Detailed), age group (Kids, Teens, Adults), border (With/Without), line thickness (Thin, Medium, Thick); validation if not selected (e.g., error messages); if options missing, assume neutral in refinement (e.g., medium complexity).
+      - Prompt improvement: AI refines inputs into a perfect, optimized prompt for DALL-E, adding subtle details for high-quality coloring book pages (e.g., if "a dinosaur", enhance to "intricate black-and-white line art of a roaring dinosaur with scales, claws, and jungle background elements, [complexity] complexity, [age] style, [thickness] lines, [border] border, coloring book style, family-friendly, no shading, 300 DPI") to generate an ideal image on the first try, no regeneration.
+      - Image generation: DALL-E creates a 300 DPI black-and-white line art image.
+      - Preview: Zoomable image display with post-generation modal (download PDF or save to gallery).
+      - Actions: Download as PDF (300 DPI); gallery save/retrieve with delete (single or bulk via checkboxes + delete button, confirm dialog).
+      Tech stack: React (frontend with Tailwind CSS), Node.js/Express (backend), OpenAI API (prompt refinement and image generation with mock key for testing), Firebase (authentication with email/password, Google, Apple logins; gallery storage). UI: Beautiful, coloring-book-themed (playful fonts like Handlee, pastel colors e.g. #FFE6E6, doodle borders), accessible (ARIA labels, high-contrast mode toggle, keyboard navigation). Improve on competitors like Coloring Book AI with better customization, prompt accuracy, and UI polish. Future: Community gallery, physical book creation (e.g., Printful integration). Output a detailed architecture doc with:
+      - Component breakdown (frontend/backend).
+      - Data flow (inputs to refined prompt to image).
+      - File structure for create-react-app with /server/ folder.
+      - Risks/mitigations (e.g., API costs with free tiers/mock key, prompt inconsistencies with validation).
+      - Setup notes (e.g., npm install firebase openai tailwindcss).
+      Remember to use your tools: --persona-architect for high-level design, --seq for step-by-step data flow, --c7 for tech stack context, --evidence for risks with references.
+    output: docs/architecture.md
+    notes: |
+      - Run command with SuperClaude to generate docs/architecture.md.
+      - If create-react-app isn't set up, run `npx create-react-app .` first.
+      - Check output file; share with Grok for review.
+      - Rerun with --uc if cut off.

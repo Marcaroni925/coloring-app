@@ -1,0 +1,40 @@
+name: Comprehensive Project Audit - Part 1: Code and File Structure Review
+description: |
+  Perform a thorough analysis of the entire AI-powered coloring book image generator app project. Identify errors, bugs, or inefficiencies in the code (frontend React/Vite/Tailwind, backend Node.js/Express, Firebase integration). Suggest improvements in code quality, such as refactoring for modularity, error handling, performance optimizations (<10s generation, <3s loads), and security (e.g., input sanitization, rate limiting). Review file structure for best practices (e.g., organized folders for components, utils, tests; separation of concerns). Add detailed comments, JSDoc, or inline descriptions to all key code sections to make it fully understandable for a new developer. Output updated code snippets with additions, a list of errors/improvements, and a revised file structure diagram. Use SuperClaude slash commands like /sc:analyze, /sc:improve, /sc:document, and /sc:cleanup where appropriate during the process.
+
+mcp:
+  - name: Code Auditor
+    role: Analyze the codebase for errors, inefficiencies, and best practices. Simulate/test code snippets if needed.
+    tools: [Sequential, Context7, Playwright]
+
+  - name: Structure Optimizer
+    role: Evaluate and propose improvements to the file and folder structure. Ensure logical organization and create a diagramming output for the ideal structure.
+    tools: [Sequential, Magic]
+
+  - name: Documentation Specialist
+    role: Review existing code for comments/docs and add comprehensive descriptions. Focus on explaining purpose, inputs/outputs, and logic for each function/component/file.
+    tools: [Context7, Sequential]
+
+steps:
+  - step: Code Auditor reviews for errors and code improvements
+    assigned_to: Code Auditor
+    inputs: [project_summary, code_files, previous_yaml_outputs]
+    outputs: [error_list, code_improvement_suggestions, refactored_snippets]
+
+  - step: Structure Optimizer analyzes and improves file structure
+    assigned_to: Structure Optimizer
+    inputs: [current_file_structure, error_list]
+    outputs: [improved_structure_diagram, folder_reorganization_plan]
+
+  - step: Documentation Specialist adds descriptions to code
+    assigned_to: Documentation Specialist
+    inputs: [code_files, refactored_snippets]
+    outputs: [updated_code_with_docs, documentation_guidelines]
+
+  - step: Final integration and report
+    assigned_to: all
+    inputs: [all_outputs]
+    outputs: [comprehensive_audit_report_part1, updated_project_files]
+
+prompt_template: |
+  Using the SuperClaude framework, execute the MCP for {name}. Focus on {description}. Leverage all available SuperClaude tools (Sequential for multi-step analysis, Context7 for library documentation and best practices, Magic for any diagramming or UI-related visuals in reports, Playwright for any browser-based testing or external research if needed). Incorporate slash commands such as /sc:analyze for code review, /sc:improve for suggestions, /sc:document for adding comments, and /sc:cleanup for refactoring. Reference the full project context: MVP with React frontend, Node backend, Firebase auth/gallery, testing suite. Ensure suggestions align with PRD (pastel UI, family-friendly, no defaults on customizations). Output in a structured format with lists, code blocks, and diagrams.

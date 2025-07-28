@@ -1,0 +1,14 @@
+# superclaude-instructions/06-deployment.yaml
+name: Deployment
+description: Prepares for Vercel hosting.
+commands:
+  - command: /deploy --web --persona-mentor --evidence --seq
+    prompt: |
+      Guide deployment to Vercel: Configure build for React frontend and Node backend, handle API keys/secrets (mock to real), Firebase integration. Include CI/CD notes with GitHub. Future scalability for community gallery/physical books. Mitigate risks like API costs.
+      Remember to use your tools: --persona-mentor for guidance, --seq for step-by-step, --evidence for deployment best practices.
+    output: docs/deployment.md
+    notes: |
+      - Run command with SuperClaude to generate docs/deployment.md.
+      - Install Vercel CLI: `npm i -g vercel`.
+      - Deploy: `vercel`.
+      - Share deployment link with Grok. Rerun with --uc if needed.

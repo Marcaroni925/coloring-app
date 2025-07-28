@@ -1,0 +1,26 @@
+# superclaude-instructions/03-backend-ai.yaml
+name: Backend AI Integration
+description: Sets up Node.js backend for prompt refinement and image generation.
+commands:
+  - command: /build --node --api --persona-backend --seq --c7 --evidence
+    prompt: |
+      Create a Node.js/Express backend for the coloring book app. Features:
+      - API route: POST /generate - receives frontend inputs (description, theme, complexity, age, border, thickness).
+      - Prompt refinement: Use OpenAI API as a "prompt creator" to intelligently refine inputs into an enhanced prompt, adding subtle details for high-quality coloring book pages (e.g., if input is "a dinosaur", enhance to "intricate black-and-white line art of a roaring dinosaur with detailed scales, claws, and jungle background elements, [complexity] complexity, [age] style, [thickness] lines, [border] border, coloring book style, family-friendly, no shading, 300 DPI"); assume neutral if options missing (e.g., medium complexity); ensure family-friendly and printable.
+      - Image generation: Send the refined prompt to DALL-E for 300 DPI black-and-white line art image, return URL/data.
+      - Error handling: Input validation (return errors if description empty), API rate limits, fallback to error message.
+      - Family-friendly filters: Block inappropriate prompts using keyword checks.
+      Tech: Express server on port 3001. Use mock API key 'sk-mock-key' for testing (replace with real later). Also:
+      - Create server/app.js for routes.
+      - Update package.json for dependencies (npm install express openai).
+      - Environment vars (.env file with OPENAI_API_KEY='sk-mock-key').
+      Remember to use your tools: --persona-backend for API logic, --seq for refinement steps (e.g., validate > enhance > filter), --c7 for OpenAI docs, --evidence for error handling examples.
+    output: |
+      - server/index.js
+      - server/app.js
+      - .env.example
+    notes: |
+      - Run command with SuperClaude to generate files.
+      - Install deps: `npm install express openai dotenv`.
+      - Test: `node server/index.js`, call API with mock data.
+      - Share logs/errors with Grok. Rerun with --uc if needed.

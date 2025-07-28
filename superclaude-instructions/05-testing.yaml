@@ -1,0 +1,16 @@
+# superclaude-instructions/05-testing.yaml
+name: Testing and Accessibility
+description: Adds tests for UI, API, prompt accuracy.
+commands:
+  - command: /test --unit --coverage --persona-qa --pup --evidence
+    prompt: |
+      Generate tests for the app: Unit tests (React Testing Library for UI inputs/validation e.g. no submission if fields missing, accessibility ARIA/high-contrast), API tests (supertest for prompt refinement accuracy with examples like "a dinosaur" becoming enhanced with subtle details, image gen mocks), end-to-end (Puppeteer for browser flows, mobile emulation e.g. iPhone/Android views for responsiveness). Verify prompt includes key phrases (e.g., "line art", "300 DPI", "family-friendly") and adds subtle details for quality. Ensure no errors in full flow, including gallery delete.
+      Remember to use your tools: --persona-qa for test quality, --pup for end-to-end, --evidence for coverage metrics.
+    output: |
+      - src/__tests__/app.test.js
+      - server/__tests__/api.test.js
+    notes: |
+      - Run command with SuperClaude to generate files.
+      - Install deps: `npm install --save-dev supertest puppeteer @testing-library/react @testing-library/jest-dom`.
+      - Run: `npm test`.
+      - Share results with Grok. Rerun with --uc if needed.

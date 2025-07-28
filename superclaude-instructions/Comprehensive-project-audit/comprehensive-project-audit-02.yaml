@@ -1,0 +1,40 @@
+name: Comprehensive Project Audit - Part 2: UI/UX and Overall Improvements
+description: |
+  Analyze the UI/UX aspects of the app based on the project summary and PRD. Identify improvements for responsiveness (mobile-first, media queries), theme consistency (pastels, Handlee font, doodle borders, animations like crayon scribbles/confetti). Suggest enhancements for user flow (prompt input → refinement → generation → preview/modal), accessibility (high-contrast toggle), and playfulness (icons, loaders). Look for overall project improvements, such as integrating future features (community gallery stubs), performance tweaks, or scalability. Cross-reference with Part 1 outputs for holistic suggestions. If needed, mock UI code changes or wireframes. Use SuperClaude slash commands like /sc:design, /sc:improve, /sc:test, and /sc:document where appropriate.
+
+mcp:
+  - name: UI Designer
+    role: Evaluate and propose UI/UX improvements. Focus on visual/theme enhancements, responsiveness, and user experience. Create wireframes or updated component sketches.
+    tools: [Magic, Sequential, Playwright]
+
+  - name: UX Tester
+    role: Simulate user interactions to find UX pain points (e.g., validation errors, loading states). Suggest fixes for issues like button clickability or modal behaviors from context.
+    tools: [Playwright, Sequential, Context7]
+
+  - name: Integration Expert
+    role: Provide overall project improvements, tying in code/UI suggestions. Recommend additions like analytics, feedback forms, or deployment prep integrations.
+    tools: [Sequential, Context7, Magic]
+
+steps:
+  - step: UI Designer reviews and improves UI elements
+    assigned_to: UI Designer
+    inputs: [ui_theme_guidelines, project_summary, part1_outputs]
+    outputs: [ui_improvement_list, wireframe_diagrams, updated_css_snippets]
+
+  - step: UX Tester analyzes user flow and accessibility
+    assigned_to: UX Tester
+    inputs: [user_flow_description, test_scripts]
+    outputs: [ux_issues_report, performance_suggestions]
+
+  - step: Integration Expert compiles overall enhancements
+    assigned_to: Integration Expert
+    inputs: [all_part1_outputs, ui_improvement_list, ux_issues_report]
+    outputs: [overall_improvements_plan, future_roadmap_stub]
+
+  - step: Final report compilation
+    assigned_to: all
+    inputs: [all_outputs]
+    outputs: [comprehensive_audit_report_part2, integrated_suggestions]
+
+prompt_template: |
+  Using the SuperClaude framework, execute the MCP for {name}. Focus on {description}. Utilize all SuperClaude tools (Magic for UI component generation and wireframing, Sequential for multi-step UX analysis, Playwright for simulating browser interactions and testing, Context7 for best practices research). Incorporate slash commands such as /sc:design for UI suggestions, /sc:improve for enhancements, /sc:test for UX validation, and /sc:document for reporting. Build on Part 1 for consistency. Ensure alignment with PRD: playful pastel theme, responsive design, <3s loads. Output structured with bullet points, diagrams, and code examples.

@@ -1,0 +1,13 @@
+# superclaude-instructions/07-mobile-conversion.yaml
+name: Mobile Conversion
+description: Preps for Android/iOS apps.
+commands:
+  - command: /migrate --react-native --persona-frontend --evidence --seq
+    prompt: |
+      Convert web app to React Native for Android/iOS: Adapt UI components, API calls, gallery/auth. Notes for Google Play/App Store submission, including Firebase setup.
+      Remember to use your tools: --persona-frontend for UI adaptation, --seq for conversion steps, --evidence for app store guidelines.
+    output: docs/mobile-guide.md
+    notes: |
+      - Run command with SuperClaude to generate docs/mobile-guide.md.
+      - Install Expo: `npm install -g expo-cli`.
+      - Share guide with Grok for review. Rerun with --uc if needed.

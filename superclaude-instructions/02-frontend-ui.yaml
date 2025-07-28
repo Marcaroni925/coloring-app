@@ -1,0 +1,31 @@
+# superclaude-instructions/02-frontend-ui.yaml
+name: Frontend UI Components
+description: Builds fully thought-out React UI for inputs, customization, and preview.
+commands:
+  - command: /build --react --tdd --persona-frontend --magic --evidence --seq
+    prompt: |
+      Create a fully thought-out React UI for the coloring book image generator app, emphasizing clean minimalism with playful aesthetics. Wireframe overview: Full-width pastel pink background (#F9F5F6 with subtle crayon texture overlay via CSS background-image); header at top (fixed position, 60px height, Handlee font "Coloring Book Creator" centered 28px #333, left crayon sketch icon 24px margin-left 20px, right high-contrast toggle button 32px icon with tooltip "Toggle Contrast" on hover z-index 10); main content centered max-width 1200px, padding 20px 10px; form section (white card rounded 16px shadow-md, wavy dashed doodle border 2px #CCC, margin-bottom 40px, padding 20px); preview section below form (zoomable container min-height 400px, border 1px #DDD, rounded 8px, centered, margin-top 20px); post-generation modal (centered overlay z-index 50, rounded 12px, padding 20px, with green #D7E4BC "Download PDF" and purple #C7A7E7 "Save to Gallery" buttons row gap 20px).
+      Components placement:
+      - PromptComponent: Main form grid (2 columns on desktop >768px gap 20px, 1 column mobile); top row span full: multiline textarea (label above "Describe your coloring page" bold 16px margin-bottom 8px, placeholder "e.g., unicorn in a forest", height 100px, validation: red border/error "Please enter a description" below if empty, focus glow #A7C7E7).
+      - Theme dropdown: Below textarea, left column (label "Select Theme" bold 14px margin-bottom 4px, options: Animals, Mandalas, Fantasy, Nature; magic wand icon left margin-right 8px, dropdown width 100%).
+      - Customization section: Accordion below theme (label "Customization Options" bold 14px with chevron icon right, expands to grid: detail complexity radio row (labels left bold 14px, buttons horizontal gap 10px margin-bottom 12px, validation red error below "Select complexity" if none); age group radio row below (similar); border checkbox row (label "With Border" right of checkbox 8px margin); line thickness dropdown row (label above, width 100%); all with tooltips on hover e.g. "Choose for kid-friendly simplicity" position absolute z-index 5).
+      - Generate button: Below form, centered full-width on mobile/200px desktop margin-top 20px, pastel blue #A7C7E7, "Generate" white text 16px, disabled opacity 0.5 until filled, hover: scale 1.05 + shadow, pulse animation on load (keyframe 1s infinite); on click, send inputs to backend for AI refinement (prompt creator adding subtle details) then image generation.
+      - Preview area: Below button, zoomable (react-zoom-pan-pinch, pinch on mobile, scroll on desktop), fade-in animation for image (0.5s), particle confetti doodles on success (simple CSS keyframe with small line icons scattering).
+      Crayon-drawing effect implementation: Apply to doodle borders and header icon on load - use CSS stroke-dasharray and stroke-dashoffset for line reveal (e.g., .doodle-border { stroke-dasharray: 10; animation: crayon-draw 2s ease-in forwards; } @keyframes crayon-draw { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }); add slight wobble with transform: translateY(sin wave via keyframe); performance: Use will-change: stroke-dashoffset; limit to onload (no loop), fallback for prefers-reduced-motion (disable animation via media query); if heavy, use SVG paths for borders with same animation; keep duration 1-2s, no more than 2 elements animating simultaneously.
+      Styling: Tailwind CSS global - Handlee for headings, sans-serif body; pastel palette (#FFE6E6 accents, #A7C7E7 buttons); doodle borders (CSS border-image-slice or dashed with wave filter); mobile-responsive (media queries: stack form vertically <768px, larger touch targets >48px). Accessible: ARIA labels (e.g., aria-label="Image preview", aria-invalid for errors), high-contrast toggle (switches colors to #000 bg/white text, button in header z-index 10), keyboard nav (tabindex sequential, enter submits form). Interactions: Real-time validation (green check icons on filled fields margin-left 4px, tooltip showing refined prompt on hover over generate position bottom); error modals (playful "Oops!" rounded popup with close button z-index 100); subtle micro-animations (button bounce 0.2s, form field glow on focus #D7E4BC).
+      Export default. Also:
+      - Update src/App.js to import/render PromptComponent, add header with contrast toggle.
+      - Create src/components/PromptComponent.css for custom CSS (e.g., doodle waves via border-style, crayon texture background-repeat).
+      - Generate tests in src/components/PromptComponent.test.js (React Testing Library for form validation, button disable, animations including crayon effect, accessibility, mobile resize).
+      - Include Tailwind setup if missing (npm install tailwindcss etc., directives in index.css).
+      Remember to use your tools: --persona-frontend for UI aesthetics, --magic for playful elements like icons/animations, --seq for logical component placement, --evidence for accessibility best practices.
+    output: |
+      - src/components/PromptComponent.js
+      - src/components/PromptComponent.css
+      - src/components/PromptComponent.test.js
+      - src/App.js (updated)
+    notes: |
+      - Run command with SuperClaude to generate files.
+      - Install Tailwind: `npm install -D tailwindcss postcss autoprefixer` then `npx tailwindcss init -p`.
+      - Test: `npm start` for UI, `npm test` for checks.
+      - Share errors/screenshots with Grok. Rerun with --uc if needed.
