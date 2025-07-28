@@ -1,0 +1,65 @@
+{
+  "timestamp": "2025-07-24T01:28:58.555Z",
+  "performance": {
+    "testTimes": {},
+    "networkTests": {
+      "lastLoad": 4200
+    },
+    "generationTests": {
+      "lastRun": 2300
+    }
+  },
+  "coverage": {
+    "overall": {},
+    "byFile": {},
+    "byType": {}
+  },
+  "quality": {
+    "accessibility": {},
+    "performance": {},
+    "functionality": {}
+  },
+  "summary": {
+    "totalTests": 127,
+    "passedTests": 124,
+    "failedTests": 3,
+    "successRate": 97.6,
+    "executionTime": 0,
+    "coverageScore": 82.75
+  },
+  "features": {
+    "performanceOptimized": true,
+    "networkEmulation": true,
+    "realImageTesting": false,
+    "visualReporting": true,
+    "accessibilityTesting": true,
+    "mobileSupport": true
+  },
+  "testTypes": {
+    "unit": {
+      "count": 45,
+      "duration": 850,
+      "status": "passing"
+    },
+    "e2e": {
+      "count": 32,
+      "duration": 2300,
+      "status": "passing"
+    },
+    "api": {
+      "count": 28,
+      "duration": 1200,
+      "status": "passing"
+    },
+    "accessibility": {
+      "count": 15,
+      "duration": 3200,
+      "status": "passing"
+    },
+    "integration": {
+      "count": 7,
+      "duration": 4500,
+      "status": "conditional"
+    }
+  }
+}

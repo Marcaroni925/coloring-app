@@ -14,14 +14,14 @@ import { getAuth, connectAuthEmulator, GoogleAuthProvider } from 'firebase/auth'
 import { getFirestore, connectFirestoreEmulator } from 'firebase/firestore';
 import { getStorage, connectStorageEmulator } from 'firebase/storage';
 
-// Firebase configuration - Using your project credentials
+// Firebase configuration - Environment variables required
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "AIzaSyB5O49UF2vAtcjUVHF8Qjms6sqqdBc_IOw",
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "coloing-book-creator.firebaseapp.com",
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "coloing-book-creator",
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "coloing-book-creator.firebasestorage.app",
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "143460361234",
-  appId: import.meta.env.VITE_FIREBASE_APP_ID || "1:143460361234:web:e9e2e111f1200eb54aa4cb"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
 // Initialize Firebase App
