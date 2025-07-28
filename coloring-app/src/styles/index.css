@@ -1,0 +1,14 @@
+/**
+ * Main Styles Entry Point
+ * 
+ * This file imports all style modules in the correct order.
+ * Global styles first, then animations, then component-specific styles.
+ * 
+ * Evidence: architecture.md Section 2.1 - Style Architecture
+ */
+
+/* Import global styles first */
+@import './globals.css';
+
+/* Import animations */
+@import './animations.css';

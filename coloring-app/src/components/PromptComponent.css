@@ -1,0 +1,659 @@
+/* Import Handlee font for playful aesthetics - Evidence: architecture.md Section 2.1 Typography */
+@import url('https://fonts.googleapis.com/css2?family=Handlee:wght@400&display=swap');
+
+/* Apply Handlee font to headers and labels */
+.handlee-font {
+  font-family: 'Handlee', cursive;
+}
+
+/* Crayon texture overlay for authentic coloring book feel - Evidence: architecture.md Section 2.2 Visual Design */
+.crayon-texture-bg {
+  position: relative;
+}
+
+.crayon-texture-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ffeaea' fill-opacity='0.1' opacity='0.3'%3E%3Cpath d='M30 30c0-6.627-5.373-12-12-12s-12 5.373-12 12 5.373 12 12 12 12-5.373 12-12m12 0c0-6.627-5.373-12-12-12s-12 5.373-12 12 5.373 12 12 12 12-5.373 12-12'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Doodle border styles */
+.doodle-border {
+  position: relative;
+  border: 2px dashed #CCC;
+  border-radius: 16px;
+}
+
+.doodle-border::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: 16px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M10,10 Q20,5 30,10 T50,10 T70,10 T90,10 L90,20 Q85,30 90,40 T90,60 T90,80 T90,90 L80,90 Q70,85 60,90 T40,90 T20,90 T10,90 L10,80 Q5,70 10,60 T10,40 T10,20 Z' fill='none' stroke='%23CCC' stroke-width='2' stroke-dasharray='5,3'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  animation: crayon-draw 2s ease-in forwards, wobble 2s ease-in-out 2s;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  will-change: stroke-dashoffset, transform;
+  z-index: -1;
+}
+
+/* Crayon drawing animation */
+@keyframes crayon-draw {
+  from {
+    stroke-dashoffset: 100;
+    opacity: 0.3;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+/* Wobble animation for crayon effect */
+@keyframes wobble {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-1px) rotate(0.5deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(-0.5deg);
+  }
+  75% {
+    transform: translateY(1px) rotate(0.3deg);
+  }
+}
+
+/* Enhanced particle confetti animation for success celebration - Evidence: architecture.md Section 2.3 Animations */
+.confetti-animation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  width: 200px;
+  height: 200px;
+}
+
+/* Create 20 small pastel dots with random positions and delays */
+.confetti-particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  animation: confetti-fall 2s ease-out forwards;
+  opacity: 0;
+}
+
+.confetti-particle:nth-child(1) { background: #FFB6C1; left: 10%; animation-delay: 0.1s; }
+.confetti-particle:nth-child(2) { background: #98FB98; left: 20%; animation-delay: 0.2s; }
+.confetti-particle:nth-child(3) { background: #87CEEB; left: 30%; animation-delay: 0.3s; }
+.confetti-particle:nth-child(4) { background: #DDA0DD; left: 40%; animation-delay: 0.4s; }
+.confetti-particle:nth-child(5) { background: #F0E68C; left: 50%; animation-delay: 0.5s; }
+.confetti-particle:nth-child(6) { background: #FFA07A; left: 60%; animation-delay: 0.6s; }
+.confetti-particle:nth-child(7) { background: #20B2AA; left: 70%; animation-delay: 0.7s; }
+.confetti-particle:nth-child(8) { background: #FFB6C1; left: 80%; animation-delay: 0.8s; }
+.confetti-particle:nth-child(9) { background: #98FB98; left: 90%; animation-delay: 0.9s; }
+.confetti-particle:nth-child(10) { background: #87CEEB; left: 15%; animation-delay: 1.0s; }
+.confetti-particle:nth-child(11) { background: #DDA0DD; left: 25%; animation-delay: 0.15s; }
+.confetti-particle:nth-child(12) { background: #F0E68C; left: 35%; animation-delay: 0.25s; }
+.confetti-particle:nth-child(13) { background: #FFA07A; left: 45%; animation-delay: 0.35s; }
+.confetti-particle:nth-child(14) { background: #20B2AA; left: 55%; animation-delay: 0.45s; }
+.confetti-particle:nth-child(15) { background: #FFB6C1; left: 65%; animation-delay: 0.55s; }
+.confetti-particle:nth-child(16) { background: #98FB98; left: 75%; animation-delay: 0.65s; }
+.confetti-particle:nth-child(17) { background: #87CEEB; left: 85%; animation-delay: 0.75s; }
+.confetti-particle:nth-child(18) { background: #DDA0DD; left: 95%; animation-delay: 0.85s; }
+.confetti-particle:nth-child(19) { background: #F0E68C; left: 5%; animation-delay: 0.95s; }
+.confetti-particle:nth-child(20) { background: #FFA07A; left: 95%; animation-delay: 1.05s; }
+
+@keyframes confetti-fall {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg) scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-50px) rotate(180deg) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) rotate(360deg) scale(0.3);
+  }
+}
+
+.confetti-animation::before,
+.confetti-animation::after {
+  content: '✨';
+  position: absolute;
+  font-size: 20px;
+  animation: confetti-scatter 1s ease-out forwards;
+  opacity: 0;
+}
+
+.confetti-animation::before {
+  animation-delay: 0.2s;
+  transform: translate(-20px, -10px);
+}
+
+.confetti-animation::after {
+  content: '🎨';
+  animation-delay: 0.4s;
+  transform: translate(20px, -15px);
+}
+
+@keyframes confetti-scatter {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(var(--x, 0), var(--y, -30px)) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--x, 0), var(--y, -50px)) scale(0.3);
+  }
+}
+
+/* Button hover effects */
+button:hover {
+  animation: bounce-button 0.2s ease-in-out;
+}
+
+@keyframes bounce-button {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Focus glow effects */
+textarea:focus,
+select:focus,
+input:focus {
+  box-shadow: 0 0 0 4px rgba(167, 199, 231, 0.3);
+  animation: focus-glow 0.3s ease-in;
+}
+
+@keyframes focus-glow {
+  from {
+    box-shadow: 0 0 0 0 rgba(167, 199, 231, 0.5);
+  }
+  to {
+    box-shadow: 0 0 0 4px rgba(167, 199, 231, 0.3);
+  }
+}
+
+/* Header crayon icon animation - Evidence: architecture.md Section 2.3 Interactive Elements */
+.crayon-icon {
+  animation: crayon-draw 2s ease-in forwards;
+  stroke-dasharray: 50;
+  stroke-dashoffset: 50;
+  will-change: stroke-dashoffset;
+  opacity: 1;
+  transform-origin: center;
+}
+
+/* Generate button container with enhanced styling - Evidence: architecture.md Section 3.2 Form Controls */
+.generate-button-container {
+  position: relative;
+  z-index: 10;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  margin-top: 24px;
+}
+
+/* Mobile fixed positioning for generate button - Evidence: architecture.md Section 3.2 Mobile UX */
+@media (max-width: 768px) {
+  .generate-button-mobile-fixed {
+    position: fixed !important;
+    bottom: 16px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: calc(100% - 32px) !important;
+    max-width: 400px !important;
+    z-index: 1000 !important;
+    padding: 0 16px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+  }
+  
+  /* Ensure button is always visible on mobile */
+  .generate-button-mobile-fixed button {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Desktop centered button styling */
+@media (min-width: 769px) {
+  .generate-button-desktop {
+    max-width: 300px;
+    margin: 24px auto 0;
+    position: relative;
+    z-index: 10;
+  }
+  
+  /* Ensure button is visible on desktop */
+  .generate-button-desktop button {
+    display: block !important;
+    visibility: visible !important;
+  }
+}
+
+/* High contrast mode adjustments */
+.high-contrast .doodle-border::before {
+  display: none;
+}
+
+.high-contrast .doodle-border {
+  border-color: #fff;
+}
+
+/* Mobile touch target improvements */
+@media (max-width: 768px) {
+  button,
+  .radio-option,
+  select,
+  input[type="checkbox"] {
+    min-height: 48px;
+    min-width: 48px;
+  }
+  
+  .doodle-border {
+    margin: 10px;
+    padding: 15px;
+  }
+}
+
+/* Desktop-specific enhancements - Evidence: architecture.md Section 2.4 Responsive Design */
+@media (min-width: 769px) {
+  /* Expand accordion by default on desktop for better UX */
+  .accordion-expanded-desktop {
+    display: block !important;
+  }
+  
+  /* Enhanced hover effects on desktop */
+  .hover-scale-desktop:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease-in-out;
+  }
+}
+
+/* Reduced motion fallback */
+@media (prefers-reduced-motion: reduce) {
+  .doodle-border::before,
+  .crayon-icon,
+  .confetti-animation::before,
+  .confetti-animation::after {
+    animation: none !important;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  
+  button:hover,
+  textarea:focus,
+  select:focus,
+  input:focus {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* Loading spinner styles */
+.loading-spinner {
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #A7C7E7;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Tooltip styles */
+.tooltip {
+  position: relative;
+}
+
+.tooltip:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 10;
+  opacity: 0;
+  animation: tooltip-fade-in 0.3s ease-in forwards;
+}
+
+.tooltip:hover::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  border: 6px solid transparent;
+  border-top-color: #333;
+  z-index: 10;
+}
+
+@keyframes tooltip-fade-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Form field validation states */
+.field-valid {
+  border-color: #10B981 !important;
+  background-color: #F0FDF4;
+}
+
+.field-invalid {
+  border-color: #EF4444 !important;
+  background-color: #FEF2F2;
+}
+
+/* Custom checkbox styles */
+input[type="checkbox"]:checked {
+  background-color: #A7C7E7;
+  border-color: #A7C7E7;
+}
+
+/* Custom radio button styles */
+.radio-option {
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.radio-option:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.radio-option.selected {
+  background-color: #A7C7E7;
+  color: white;
+  border-color: #A7C7E7;
+}
+
+/* Enhanced pulse animation for generate button - Evidence: architecture.md Section 2.3 Animations */
+@keyframes pulse-generate {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(167, 199, 231, 0.7);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 8px rgba(167, 199, 231, 0);
+  }
+}
+
+.generate-button-pulse {
+  animation: pulse-generate 2s infinite;
+}
+
+.generate-button-valid {
+  animation: pulse-generate 1s infinite;
+}
+
+/* Enhanced image fade-in animation - Evidence: architecture.md Section 2.3 Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out forwards;
+}
+
+/* Success celebration animation */
+@keyframes success-celebration {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.1) rotate(2deg); }
+  50% { transform: scale(1.05) rotate(-2deg); }
+  75% { transform: scale(1.1) rotate(1deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.celebrate-success {
+  animation: success-celebration 0.6s ease-in-out;
+}
+
+/* Modal backdrop blur */
+.modal-backdrop {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Icon styling for theme options - Evidence: architecture.md Section 2.3 Visual Elements */
+.theme-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  display: inline-block;
+  color: #A7C7E7;
+}
+
+/* Enhanced input field styling */
+.input-enhanced {
+  font-family: 'Handlee', cursive;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.input-enhanced:focus {
+  box-shadow: 0 0 0 4px rgba(167, 199, 231, 0.3), 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-color: #A7C7E7;
+}
+
+/* High contrast toggle button styling */
+.contrast-toggle {
+  background: #A7C7E7;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-family: 'Handlee', cursive;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contrast-toggle:hover {
+  background: #5067C9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Radio group enhancements */
+.radio-enhanced {
+  border: 2px solid transparent;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-family: 'Handlee', cursive;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.radio-enhanced:hover {
+  border-color: #A7C7E7;
+  background: rgba(167, 199, 231, 0.05);
+  transform: translateY(-1px);
+}
+
+.radio-enhanced.selected {
+  background: #A7C7E7;
+  color: white;
+  border-color: #A7C7E7;
+}
+
+/* Checkbox enhancements */
+.checkbox-enhanced {
+  accent-color: #A7C7E7;
+  transform: scale(1.2);
+}
+
+/* Select dropdown enhancements */
+.select-enhanced {
+  font-family: 'Handlee', cursive;
+  border-radius: 12px;
+  border: 2px solid #E5E7EB;
+  transition: all 0.2s ease;
+}
+
+.select-enhanced:focus {
+  border-color: #A7C7E7;
+  box-shadow: 0 0 0 3px rgba(167, 199, 231, 0.3);
+}
+
+/* Label enhancements */
+.label-enhanced {
+  font-family: 'Handlee', cursive;
+  font-weight: bold;
+  color: #333;
+  font-size: 16px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Error message styling */
+.error-message {
+  color: #EF4444;
+  font-family: 'Handlee', cursive;
+  font-size: 14px;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.error-message::before {
+  content: '⚠️';
+  margin-right: 6px;
+}
+
+/* Success message styling */
+.success-message {
+  color: #10B981;
+  font-family: 'Handlee', cursive;
+  font-size: 14px;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.success-message::before {
+  content: '✅';
+  margin-right: 6px;
+}
+
+/* Header title styling */
+.header-title {
+  font-family: 'Handlee', cursive;
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+body.dark .header-title {
+  color: #FFFFFF;
+}
+
+/* Card title styling */
+.card-title-enhanced {
+  font-family: 'Handlee', cursive;
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+body.dark .card-title-enhanced {
+  color: #FFFFFF;
+}
+
+/* Preview placeholder styling */
+.preview-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  color: #999;
+  font-family: 'Handlee', cursive;
+  text-align: center;
+}
+
+.preview-placeholder .emoji {
+  font-size: 64px;
+  margin-bottom: 16px;
+  animation: bounce 2s infinite;
+}
+
+.preview-placeholder .main-text {
+  font-size: 18px;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.preview-placeholder .sub-text {
+  font-size: 14px;
+  color: #666;
+}
